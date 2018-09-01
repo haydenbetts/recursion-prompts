@@ -182,7 +182,23 @@ var countKeysInObj = function(obj, key) {
 // countValuesInObj(obj, 'r') // 2
 // countValuesInObj(obj, 'e') // 1
 var countValuesInObj = function(obj, value) {
-
+    var count = 0;
+    // iterate through object
+    for (var key in obj) {
+        // if value is an object
+        if (typeof obj[key] === 'object') {
+            // increment count by the result of invoking countValuesInObj on that value
+            count += countValuesInObj(obj[key], value);
+        } else {
+            // else 
+            // if value is the one we want
+            if (obj[key] === value) {
+                // increment count by one
+                count += 1;
+            }
+        }
+    }
+    return count;
 };
 
 // 24. Find all keys in an object (and nested objects) by a provided name and rename
