@@ -121,7 +121,18 @@ var exponent = function(base, exp) {
 // powerOfTwo(1); // true
 // powerOfTwo(16); // true
 // powerOfTwo(10); // false
+
 var powerOfTwo = function(n) {
+    // if we eventually reach 1 when dividing by 2
+    if (Math.floor(n) !== n || n === 0) {
+        return false;
+    }
+    
+    if (n === 1) {
+        return true;
+    }
+
+    return true && powerOfTwo(n / 2);
 };
 
 // 9. Write a function that reverses a string.
