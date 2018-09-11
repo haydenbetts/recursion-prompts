@@ -16,7 +16,11 @@ var sum = function(array) {
     if (array.length === 0) {
         return 0;
     }
-    return array[0] + sum(array.slice(1));
+    if (array.length === 1) {
+        return array[0];
+    }
+
+    return array[0] + sum(array.slice(1, array.length));
 };
 
 // 3. Sum all numbers in an array containing nested arrays.
@@ -54,6 +58,7 @@ var isEven = function(n) {
 // sumBelow(10); // 45
 // sumBelow(7); // 21
 var sumBelow = function(n) {
+
 };
 
 // 6. Get the integers within a range (x, y).
